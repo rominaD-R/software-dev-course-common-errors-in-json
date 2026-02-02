@@ -47,24 +47,24 @@ but it contains multiple syntax errors that prevent it from being parsed.
 const invalidBookingJSON = `
 {
   "hotelName": "Grand City Hotel",
-  "checkInDate": "2024-05-15"
+  "checkInDate": "2024-05-15",                            // needs a comma at the end
   "checkOutDate": "2024-05-20",
   "guests": [
     {
-      name: "Alice Johnson",
+      "name": "Alice Johnson",                           // needs quotation marks around "name"
       "age": 30,
       "email": "alice.johnson@example.com"
     },
     {
       "name": "Bob Smith",
-      "age": undefined,
+      "age": null,                                        // invalid data type. should be null instead
       "email": "bob.smith@example"
     }
   ],
   "roomDetails": {
     "type": "Suite",
     "pricePerNight": 200,
-    "amenities": ["WiFi", "Breakfast", "Parking",]
+    "amenities": ["WiFi", "Breakfast", "Parking"]        // extra comma at the end
   }
 }
 `;
@@ -91,11 +91,15 @@ const invalidBookingJSON = `
 💬 Reflect and answer the following:
 
 1️⃣ What tools or techniques did you use to identify the errors?
+- I mostly just remembered the syntax rules and found them by reading line-by-line.
 
 2️⃣ How did you confirm that your corrected JSON file was valid?
+- I confirmed that the JSON code was correct by using JSONLint validator.
 
 3️⃣ Which errors were the most difficult to spot? Why?
+- The keys that were missing the quotation marks around it. It's hard switching from JS keys to JSON key formats.
 
 4️⃣ What strategies can help you avoid these kinds of errors in the future?
    (e.g., syntax highlighting, linters, writing JSON by example)
+- Using linters is good for me.
 */
